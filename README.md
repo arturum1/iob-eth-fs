@@ -1,4 +1,4 @@
-# FuseSoC Prebuilt iob\_eth Core Repository
+# FuseSoC Prebuilt IOb-Eth Core Repository
 
 This repository contains a prebuilt version of the [iob\_eth](https://github.com/IObundle/iob-eth) core, exported and packaged to be FuseSoC-compatible.
 
