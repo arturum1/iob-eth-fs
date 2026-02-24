@@ -1,6 +1,6 @@
 CAPI=2:
 
-name: iobundle:py2hwsw:iob_eth:0.1
+name: iobundle:py2hwsw:iob_eth:0.1.0
 #license: MIT
 description: "IObundle's ethernet core. Driver-compatible with the [ethmac](https://opencores.org/projects/ethmac) core, containing a similar Control/Status Register interface."
 
