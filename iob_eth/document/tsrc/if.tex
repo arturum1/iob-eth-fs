@@ -1,0 +1,135 @@
+% SPDX-FileCopyrightText: 2026 IObundle, Lda
+%
+% SPDX-License-Identifier: MIT
+%
+% Py2HWSW Version 0.81 has generated this code (https://github.com/IObundle/py2hwsw).
+
+The interface signals of the core are described in the following tables.
+Note that the ouput signals are registered in the core, while the input signals are not.
+{
+\setlength{\LTcapwidth}{\linewidth} % make sure the caption takes up the whole linewidth
+\begin{xltabular}{\textwidth}{|l|l|r|X|}
+  \hline
+  \rowcolor{iob-green}
+  {\bf Name} & {\bf Direction} & {\bf Width} & {\bf Description}  \\ \hline \hline
+  \endfirsthead
+  \hline
+  \caption{Clock, clock enable and reset}
+  \endlastfoot
+
+  \input clk_en_rst_s_if_tab
+\end{xltabular}
+\label{clk_en_rst_s_if_tab:is}
+}
+
+{
+\setlength{\LTcapwidth}{\linewidth} % make sure the caption takes up the whole linewidth
+\begin{xltabular}{\textwidth}{|l|l|r|X|}
+  \hline
+  \rowcolor{iob-green}
+  {\bf Name} & {\bf Direction} & {\bf Width} & {\bf Description}  \\ \hline \hline
+  \endfirsthead
+  \hline
+  \caption{AXI manager interface for external memory}
+  \endlastfoot
+
+  \input axi_m_if_tab
+\end{xltabular}
+\label{axi_m_if_tab:is}
+}
+
+{
+\setlength{\LTcapwidth}{\linewidth} % make sure the caption takes up the whole linewidth
+\begin{xltabular}{\textwidth}{|l|l|r|X|}
+  \hline
+  \rowcolor{iob-green}
+  {\bf Name} & {\bf Direction} & {\bf Width} & {\bf Description}  \\ \hline \hline
+  \endfirsthead
+  \hline
+  \caption{Interrupt Output}
+  \endlastfoot
+
+  \input inta_o_if_tab
+\end{xltabular}
+\label{inta_o_if_tab:is}
+}
+
+{
+\setlength{\LTcapwidth}{\linewidth} % make sure the caption takes up the whole linewidth
+\begin{xltabular}{\textwidth}{|l|l|r|X|}
+  \hline
+  \rowcolor{iob-green}
+  {\bf Name} & {\bf Direction} & {\bf Width} & {\bf Description}  \\ \hline \hline
+  \endfirsthead
+  \hline
+  \caption{PHY reset output (active low)}
+  \endlastfoot
+
+  \input phy_rstn_o_if_tab
+\end{xltabular}
+\label{phy_rstn_o_if_tab:is}
+}
+
+{
+\setlength{\LTcapwidth}{\linewidth} % make sure the caption takes up the whole linewidth
+\begin{xltabular}{\textwidth}{|l|l|r|X|}
+  \hline
+  \rowcolor{iob-green}
+  {\bf Name} & {\bf Direction} & {\bf Width} & {\bf Description}  \\ \hline \hline
+  \endfirsthead
+  \hline
+  \caption{MII interface}
+  \endlastfoot
+
+  \input mii_io_if_tab
+\end{xltabular}
+\label{mii_io_if_tab:is}
+}
+
+{
+\setlength{\LTcapwidth}{\linewidth} % make sure the caption takes up the whole linewidth
+\begin{xltabular}{\textwidth}{|l|l|r|X|}
+  \hline
+  \rowcolor{iob-green}
+  {\bf Name} & {\bf Direction} & {\bf Width} & {\bf Description}  \\ \hline \hline
+  \endfirsthead
+  \hline
+  \caption{Control and status interface, when selecting the AXI-Lite CSR interface.}
+  \endlastfoot
+
+  \input csrs_cbus_axil_s_if_tab
+\end{xltabular}
+\label{csrs_cbus_axil_s_if_tab:is}
+}
+
+{
+\setlength{\LTcapwidth}{\linewidth} % make sure the caption takes up the whole linewidth
+\begin{xltabular}{\textwidth}{|l|l|r|X|}
+  \hline
+  \rowcolor{iob-green}
+  {\bf Name} & {\bf Direction} & {\bf Width} & {\bf Description}  \\ \hline \hline
+  \endfirsthead
+  \hline
+  \caption{Control and status interface, when selecting the Wishbone CSR interface.}
+  \endlastfoot
+
+  \input csrs_cbus_wb_s_if_tab
+\end{xltabular}
+\label{csrs_cbus_wb_s_if_tab:is}
+}
+
+{
+\setlength{\LTcapwidth}{\linewidth} % make sure the caption takes up the whole linewidth
+\begin{xltabular}{\textwidth}{|l|l|r|X|}
+  \hline
+  \rowcolor{iob-green}
+  {\bf Name} & {\bf Direction} & {\bf Width} & {\bf Description}  \\ \hline \hline
+  \endfirsthead
+  \hline
+  \caption{Control and Status Registers interface (auto-generated)}
+  \endlastfoot
+
+  \input csrs_cbus_s_if_tab
+\end{xltabular}
+\label{csrs_cbus_s_if_tab:is}
+}

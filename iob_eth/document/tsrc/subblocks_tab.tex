@@ -1,0 +1,22 @@
+% SPDX-FileCopyrightText: 2026 IObundle, Lda
+%
+% SPDX-License-Identifier: MIT
+%
+% Py2HWSW Version 0.81 has generated this code (https://github.com/IObundle/py2hwsw).
+
+csrs & The Control and Status Register block contains registers accessible by the software for controlling the IP core attached as a peripheral. \\* \nobreakhline
+\rowcolor{iob-blue}
+phy\_reset\_counter & Counter to generate initial PHY reset signal. Configurable duration based on counter reset value. \\* \nobreakhline
+cdc & Clock domain crossing block, using internal synchronizers. \\* \nobreakhline
+\rowcolor{iob-blue}
+transmitter & Ethernet transmitter that reads payload bytes from a host interface, emits preamble/SFD and payload, computes and appends the CRC, and provides flow-control so the surrounding logic knows when the transmitter is ready for the next frame. \\ \hline
+receiver & Ethernet receiver that detects frame start, captures the destination MAC and payload, writes received bytes to a host interface, and validates the frame with a CRC check; it produces a ready/received indication for higher-level logic. \\ \hline
+\rowcolor{iob-blue}
+tx\_buffer & Buffer memory for data to be transmitted. \\ \hline
+rx\_buffer & Buffer memory for data received. \\ \hline
+\rowcolor{iob-blue}
+buffer\_descriptors & Buffer descriptors memory. \\ \hline
+data\_transfer & Manages data transfers between ethernet modules and interfaces. \\ \hline
+\rowcolor{iob-blue}
+mii\_management & Controls MII management signals. \\ \hline
+eth\_logic & Extra ethernet logic for interface between CSRs and Data Transfer block. \\

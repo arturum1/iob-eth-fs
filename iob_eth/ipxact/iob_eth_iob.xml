@@ -1,0 +1,2046 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+SPDX-FileCopyrightText: 2026 IObundle, Lda
+
+SPDX-License-Identifier: MIT
+
+Py2HWSW Version 0.81 has generated this code (https://github.com/IObundle/py2hwsw).
+-->
+
+<ipxact:component xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ipxact="http://www.accellera.org/XMLSchema/IPXACT/1685-2014" xmlns:kactus2="http://kactus2.cs.tut.fi" xsi:schemaLocation="http://www.accellera.org/XMLSchema/IPXACT/1685-2014 http://www.accellera.org/XMLSchema/IPXACT/1685-2014/index.xsd">
+	<ipxact:vendor>IObundle</ipxact:vendor>
+	<ipxact:library>IP</ipxact:library>
+	<ipxact:name>IOB-ETH-IOB</ipxact:name>
+	<ipxact:version>0.1</ipxact:version>
+	<ipxact:busInterfaces>
+		<ipxact:busInterface>
+			<ipxact:name>clk_en_rst_s</ipxact:name>
+			<ipxact:displayName>Clock (configurable)</ipxact:displayName>
+			<ipxact:description>Clock, clock enable and reset</ipxact:description>
+			<ipxact:busType vendor="IObundle" library="CLK" name="iob_clk" version="1.0"/>
+			<ipxact:slave/>
+			<ipxact:connectionRequired>true</ipxact:connectionRequired>
+			<portMap>
+				<logicalPort>clk_i</logicalPort>
+				<physicalPort>clk_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>cke_i</logicalPort>
+				<physicalPort>cke_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>arst_i</logicalPort>
+				<physicalPort>arst_i</physicalPort>
+			</portMap>
+
+		</ipxact:busInterface>
+		<ipxact:busInterface>
+			<ipxact:name>axi_m</ipxact:name>
+			<ipxact:displayName>AXI</ipxact:displayName>
+			<ipxact:description>AXI manager interface for external memory</ipxact:description>
+			<ipxact:busType vendor="ARM" library="AXI" name="axi" version="4.0"/>
+			<ipxact:master/>
+			<ipxact:connectionRequired>true</ipxact:connectionRequired>
+			<portMap>
+				<logicalPort>axi_araddr_o</logicalPort>
+				<physicalPort>axi_araddr_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_arvalid_o</logicalPort>
+				<physicalPort>axi_arvalid_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_arready_i</logicalPort>
+				<physicalPort>axi_arready_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_rdata_i</logicalPort>
+				<physicalPort>axi_rdata_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_rresp_i</logicalPort>
+				<physicalPort>axi_rresp_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_rvalid_i</logicalPort>
+				<physicalPort>axi_rvalid_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_rready_o</logicalPort>
+				<physicalPort>axi_rready_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_arid_o</logicalPort>
+				<physicalPort>axi_arid_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_arlen_o</logicalPort>
+				<physicalPort>axi_arlen_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_arsize_o</logicalPort>
+				<physicalPort>axi_arsize_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_arburst_o</logicalPort>
+				<physicalPort>axi_arburst_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_arlock_o</logicalPort>
+				<physicalPort>axi_arlock_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_arcache_o</logicalPort>
+				<physicalPort>axi_arcache_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_arqos_o</logicalPort>
+				<physicalPort>axi_arqos_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_rid_i</logicalPort>
+				<physicalPort>axi_rid_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_rlast_i</logicalPort>
+				<physicalPort>axi_rlast_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_awaddr_o</logicalPort>
+				<physicalPort>axi_awaddr_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_awvalid_o</logicalPort>
+				<physicalPort>axi_awvalid_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_awready_i</logicalPort>
+				<physicalPort>axi_awready_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_wdata_o</logicalPort>
+				<physicalPort>axi_wdata_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_wstrb_o</logicalPort>
+				<physicalPort>axi_wstrb_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_wvalid_o</logicalPort>
+				<physicalPort>axi_wvalid_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_wready_i</logicalPort>
+				<physicalPort>axi_wready_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_bresp_i</logicalPort>
+				<physicalPort>axi_bresp_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_bvalid_i</logicalPort>
+				<physicalPort>axi_bvalid_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_bready_o</logicalPort>
+				<physicalPort>axi_bready_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_awid_o</logicalPort>
+				<physicalPort>axi_awid_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_awlen_o</logicalPort>
+				<physicalPort>axi_awlen_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_awsize_o</logicalPort>
+				<physicalPort>axi_awsize_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_awburst_o</logicalPort>
+				<physicalPort>axi_awburst_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_awlock_o</logicalPort>
+				<physicalPort>axi_awlock_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_awcache_o</logicalPort>
+				<physicalPort>axi_awcache_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_awqos_o</logicalPort>
+				<physicalPort>axi_awqos_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_wlast_o</logicalPort>
+				<physicalPort>axi_wlast_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>axi_bid_i</logicalPort>
+				<physicalPort>axi_bid_i</physicalPort>
+			</portMap>
+
+		</ipxact:busInterface>
+		<ipxact:busInterface>
+			<ipxact:name>csrs_cbus_s</ipxact:name>
+			<ipxact:displayName>IOb</ipxact:displayName>
+			<ipxact:description>Control and Status Registers interface (auto-generated)</ipxact:description>
+			<ipxact:busType vendor="IObundle" library="IOb" name="iob" version="1.0"/>
+			<ipxact:slave/>
+			<ipxact:connectionRequired>true</ipxact:connectionRequired>
+			<portMap>
+				<logicalPort>csrs_iob_valid_i</logicalPort>
+				<physicalPort>csrs_iob_valid_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>csrs_iob_addr_i</logicalPort>
+				<physicalPort>csrs_iob_addr_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>csrs_iob_wdata_i</logicalPort>
+				<physicalPort>csrs_iob_wdata_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>csrs_iob_wstrb_i</logicalPort>
+				<physicalPort>csrs_iob_wstrb_i</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>csrs_iob_rvalid_o</logicalPort>
+				<physicalPort>csrs_iob_rvalid_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>csrs_iob_rdata_o</logicalPort>
+				<physicalPort>csrs_iob_rdata_o</physicalPort>
+			</portMap>
+			<portMap>
+				<logicalPort>csrs_iob_ready_o</logicalPort>
+				<physicalPort>csrs_iob_ready_o</physicalPort>
+			</portMap>
+
+		</ipxact:busInterface>
+
+	</ipxact:busInterfaces>
+
+	<ipxact:memoryMaps>
+		<ipxact:memoryMap>
+			<ipxact:name>CSR</ipxact:name>
+			<ipxact:addressBlock>
+				<ipxact:name>CSR_REGS</ipxact:name>
+				<ipxact:baseAddress>0</ipxact:baseAddress>
+				<ipxact:range>2050</ipxact:range>
+				<ipxact:width>32</ipxact:width>
+				<ipxact:usage>register</ipxact:usage>
+				<ipxact:access>read-write</ipxact:access>
+				<ipxact:register>
+					<ipxact:name>moder</ipxact:name>
+					<ipxact:description>Mode Register</ipxact:description>
+					<ipxact:addressOffset>"16'h0000</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>moder</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>40960</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>int_source</ipxact:name>
+					<ipxact:description>Interrupt Source Register</ipxact:description>
+					<ipxact:addressOffset>"16'h0004</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>int_source</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>int_mask</ipxact:name>
+					<ipxact:description>Interrupt Mask Register</ipxact:description>
+					<ipxact:addressOffset>"16'h0008</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>int_mask</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>ipgt</ipxact:name>
+					<ipxact:description>Back to Back Inter Packet Gap Register</ipxact:description>
+					<ipxact:addressOffset>"16'h000C</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>ipgt</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>18</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>ipgr1</ipxact:name>
+					<ipxact:description>Non Back to Back Inter Packet Gap Register 1</ipxact:description>
+					<ipxact:addressOffset>"16'h0010</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>ipgr1</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>12</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>ipgr2</ipxact:name>
+					<ipxact:description>Non Back to Back Inter Packet Gap Register 2</ipxact:description>
+					<ipxact:addressOffset>"16'h0014</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>ipgr2</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>18</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>packetlen</ipxact:name>
+					<ipxact:description>Packet Length (minimum and maximum) Register</ipxact:description>
+					<ipxact:addressOffset>"16'h0018</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>packetlen</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>4195840</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>collconf</ipxact:name>
+					<ipxact:description>Collision and Retry Configuration</ipxact:description>
+					<ipxact:addressOffset>"16'h001C</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>collconf</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>61443</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>tx_bd_num</ipxact:name>
+					<ipxact:description>Transmit Buffer Descriptor Number</ipxact:description>
+					<ipxact:addressOffset>"16'h0020</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>tx_bd_num</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>64</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>ctrlmoder</ipxact:name>
+					<ipxact:description>Control Module Mode Register</ipxact:description>
+					<ipxact:addressOffset>"16'h0024</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>ctrlmoder</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>miimoder</ipxact:name>
+					<ipxact:description>MII Mode Register</ipxact:description>
+					<ipxact:addressOffset>"16'h0028</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>miimoder</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>100</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>miicommand</ipxact:name>
+					<ipxact:description>MII Command Register</ipxact:description>
+					<ipxact:addressOffset>"16'h002C</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>miicommand</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>miiaddress</ipxact:name>
+					<ipxact:description>MII Address Register. Contains the PHY address and the register within the PHY address</ipxact:description>
+					<ipxact:addressOffset>"16'h0030</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>miiaddress</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>miitx_data</ipxact:name>
+					<ipxact:description>MII Transmit Data. The data to be transmitted to the PHY</ipxact:description>
+					<ipxact:addressOffset>"16'h0034</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>miitx_data</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>miirx_data</ipxact:name>
+					<ipxact:description>MII Receive Data. The data received from the PHY</ipxact:description>
+					<ipxact:addressOffset>"16'h0038</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>miirx_data</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>miistatus</ipxact:name>
+					<ipxact:description>MII Status Register</ipxact:description>
+					<ipxact:addressOffset>"16'h003C</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>miistatus</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>mac_addr0</ipxact:name>
+					<ipxact:description>MAC Individual Address0. The LSB four bytes of the individual address are written to this register</ipxact:description>
+					<ipxact:addressOffset>"16'h0040</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>mac_addr0</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>mac_addr1</ipxact:name>
+					<ipxact:description>MAC Individual Address1. The MSB two bytes of the individual address are written to this register</ipxact:description>
+					<ipxact:addressOffset>"16'h0044</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>mac_addr1</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>eth_hash0_adr</ipxact:name>
+					<ipxact:description>HASH0 Register</ipxact:description>
+					<ipxact:addressOffset>"16'h0048</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>eth_hash0_adr</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>eth_hash1_adr</ipxact:name>
+					<ipxact:description>HASH1 Register</ipxact:description>
+					<ipxact:addressOffset>"16'h004C</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>eth_hash1_adr</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>eth_txctrl</ipxact:name>
+					<ipxact:description>Transmit Control Register</ipxact:description>
+					<ipxact:addressOffset>"16'h0050</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>eth_txctrl</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>tx_bd_cnt</ipxact:name>
+					<ipxact:description>Buffer descriptor number of current TX frame</ipxact:description>
+					<ipxact:addressOffset>"16'h0054</ipxact:addressOffset>
+					<ipxact:size>8</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-only</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>tx_bd_cnt</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>BD_NUM_LOG2</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>rx_bd_cnt</ipxact:name>
+					<ipxact:description>Buffer descriptor number of current RX frame</ipxact:description>
+					<ipxact:addressOffset>"16'h0058</ipxact:addressOffset>
+					<ipxact:size>8</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-only</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>rx_bd_cnt</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>BD_NUM_LOG2</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>tx_word_cnt</ipxact:name>
+					<ipxact:description>Word number of current TX frame</ipxact:description>
+					<ipxact:addressOffset>"16'h005C</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-only</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>tx_word_cnt</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>BUFFER_W</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>rx_word_cnt</ipxact:name>
+					<ipxact:description>Word number of current RX frame</ipxact:description>
+					<ipxact:addressOffset>"16'h0060</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-only</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>rx_word_cnt</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>BUFFER_W</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>rx_nbytes</ipxact:name>
+					<ipxact:description>Size of received frame in bytes. Will be zero if no frame has been received. Will reset to zero when cpu completes reading the frame.</ipxact:description>
+					<ipxact:addressOffset>"16'h0064</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-only</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>rx_nbytes</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>BUFFER_W</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>frame_word</ipxact:name>
+					<ipxact:description>Frame word to transfer to/from buffer</ipxact:description>
+					<ipxact:addressOffset>"16'h0068</ipxact:addressOffset>
+					<ipxact:size>8</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>frame_word</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>8</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>phy_rst_val</ipxact:name>
+					<ipxact:description>Current PHY reset signal value</ipxact:description>
+					<ipxact:addressOffset>"16'h006C</ipxact:addressOffset>
+					<ipxact:size>8</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-only</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>phy_rst_val</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>1</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+					<ipxact:field>
+						<ipxact:name>RSVD</ipxact:name>
+						<ipxact:bitOffset>1</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>7</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>bd</ipxact:name>
+					<ipxact:description>Buffer descriptors</ipxact:description>
+					<ipxact:addressOffset>"16'h0400</ipxact:addressOffset>
+					<ipxact:size>32</ipxact:size>
+					<ipxact:volatile>true</ipxact:volatile>
+					<ipxact:access>read-write</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>bd</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>32</ipxact:bitWidth>
+						<ipxact:volatile>true</ipxact:volatile>
+						<ipxact:access>read-write</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+				<ipxact:register>
+					<ipxact:name>version</ipxact:name>
+					<ipxact:description>Product version. This 16-bit register uses nibbles to represent decimal numbers using their binary values. The two most significant nibbles represent the integral part of the version, and the two least significant nibbles represent the decimal part. For example V12.34 is represented by 0x1234.</ipxact:description>
+					<ipxact:addressOffset>"16'h0800</ipxact:addressOffset>
+					<ipxact:size>16</ipxact:size>
+					<ipxact:volatile>false</ipxact:volatile>
+					<ipxact:access>read-only</ipxact:access>
+					<ipxact:field>
+						<ipxact:name>version</ipxact:name>
+						<ipxact:bitOffset>0</ipxact:bitOffset>
+						<ipxact:resets>
+							<ipxact:reset resetTypeRef="arst_i">
+								<ipxact:value>0001</ipxact:value>
+							</ipxact:reset>
+						</ipxact:resets>
+						<ipxact:bitWidth>16</ipxact:bitWidth>
+						<ipxact:volatile>false</ipxact:volatile>
+						<ipxact:access>read-only</ipxact:access>
+						<ipxact:modifiedWriteValue></ipxact:modifiedWriteValue>
+						<ipxact:readAction></ipxact:readAction>
+					</ipxact:field>
+
+				</ipxact:register>
+			</ipxact:addressBlock>
+			<ipxact:addressUnitBits>8</ipxact:addressUnitBits>
+		</ipxact:memoryMap>
+	</ipxact:memoryMaps>
+	<ipxact:model>
+		<ipxact:views>
+			<ipxact:view>
+				<ipxact:name>flat_verilog</ipxact:name>
+				<ipxact:envIdentifier>Verilog:kactus2.cs.tut.fi:</ipxact:envIdentifier>
+				<ipxact:componentInstantiationRef>verilog_implementation</ipxact:componentInstantiationRef>
+			</ipxact:view>
+		</ipxact:views>
+		<ipxact:instantiations>
+			<ipxact:componentInstantiation>
+				<ipxact:name>verilog_implementation</ipxact:name>
+				<ipxact:language>Verilog</ipxact:language>
+				<ipxact:moduleName>iob_eth</ipxact:moduleName>
+				<ipxact:moduleParameters>
+					<ipxact:moduleParameter parameterId="PREAMBLE_INST_ID" usageType="nontyped">
+						<ipxact:name>PREAMBLE</ipxact:name>
+						<ipxact:value>PREAMBLE_ID</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="PREAMBLE_LEN_INST_ID" usageType="nontyped">
+						<ipxact:name>PREAMBLE_LEN</ipxact:name>
+						<ipxact:value>PREAMBLE_LEN_ID</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="SFD_INST_ID" usageType="nontyped">
+						<ipxact:name>SFD</ipxact:name>
+						<ipxact:value>SFD_ID</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="MAC_ADDR_LEN_INST_ID" usageType="nontyped">
+						<ipxact:name>MAC_ADDR_LEN</ipxact:name>
+						<ipxact:value>MAC_ADDR_LEN_ID</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="DATA_W_INST_ID" usageType="nontyped">
+						<ipxact:name>DATA_W</ipxact:name>
+						<ipxact:value>DATA_W_ID</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="AXI_ID_W_INST_ID" usageType="nontyped">
+						<ipxact:name>AXI_ID_W</ipxact:name>
+						<ipxact:value>AXI_ID_W_ID</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="AXI_ADDR_W_INST_ID" usageType="nontyped">
+						<ipxact:name>AXI_ADDR_W</ipxact:name>
+						<ipxact:value>AXI_ADDR_W_ID</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="AXI_DATA_W_INST_ID" usageType="nontyped">
+						<ipxact:name>AXI_DATA_W</ipxact:name>
+						<ipxact:value>AXI_DATA_W_ID</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="AXI_LEN_W_INST_ID" usageType="nontyped">
+						<ipxact:name>AXI_LEN_W</ipxact:name>
+						<ipxact:value>AXI_LEN_W_ID</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="PHY_RST_CNT_INST_ID" usageType="nontyped">
+						<ipxact:name>PHY_RST_CNT</ipxact:name>
+						<ipxact:value>PHY_RST_CNT_ID</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="BD_NUM_LOG2_INST_ID" usageType="nontyped">
+						<ipxact:name>BD_NUM_LOG2</ipxact:name>
+						<ipxact:value>BD_NUM_LOG2_ID</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="BUFFER_W_INST_ID" usageType="nontyped">
+						<ipxact:name>BUFFER_W</ipxact:name>
+						<ipxact:value>BUFFER_W_ID</ipxact:value>
+					</ipxact:moduleParameter>
+					<ipxact:moduleParameter parameterId="VERSION_INST_ID" usageType="nontyped">
+						<ipxact:name>VERSION</ipxact:name>
+						<ipxact:value>VERSION_ID</ipxact:value>
+					</ipxact:moduleParameter>
+				</ipxact:moduleParameters>
+			</ipxact:componentInstantiation>
+		</ipxact:instantiations>
+		<ipxact:ports>
+			<ipxact:port>
+				<ipxact:name>clk_i</ipxact:name>
+				<ipxact:description>Clock</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>clk_en_rst_s</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>cke_i</ipxact:name>
+				<ipxact:description>Clock enable</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>clk_en_rst_s</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>arst_i</ipxact:name>
+				<ipxact:description>Asynchronous active-high reset</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>clk_en_rst_s</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_araddr_o</ipxact:name>
+				<ipxact:description>AXI address read channel byte address.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>AXI_ADDR_W_ID-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_arvalid_o</ipxact:name>
+				<ipxact:description>AXI address read channel valid.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_arready_i</ipxact:name>
+				<ipxact:description>AXI address read channel ready.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_rdata_i</ipxact:name>
+				<ipxact:description>AXI read channel data.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>AXI_DATA_W_ID-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_rresp_i</ipxact:name>
+				<ipxact:description>AXI read channel response.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_rvalid_i</ipxact:name>
+				<ipxact:description>AXI read channel valid.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_rready_o</ipxact:name>
+				<ipxact:description>AXI read channel ready.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_arid_o</ipxact:name>
+				<ipxact:description>AXI address read channel ID.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>AXI_ID_W_ID-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_arlen_o</ipxact:name>
+				<ipxact:description>AXI address read channel burst length.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>AXI_LEN_W_ID-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_arsize_o</ipxact:name>
+				<ipxact:description>AXI address read channel burst size.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>2</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_arburst_o</ipxact:name>
+				<ipxact:description>AXI address read channel burst type.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_arlock_o</ipxact:name>
+				<ipxact:description>AXI address read channel lock type.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_arcache_o</ipxact:name>
+				<ipxact:description>AXI address read channel memory type.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>3</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_arqos_o</ipxact:name>
+				<ipxact:description>AXI address read channel quality of service.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>3</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_rid_i</ipxact:name>
+				<ipxact:description>AXI Read channel ID.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>AXI_ID_W_ID-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_rlast_i</ipxact:name>
+				<ipxact:description>AXI Read channel last word.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_awaddr_o</ipxact:name>
+				<ipxact:description>AXI address write channel byte address.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>AXI_ADDR_W_ID-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_awvalid_o</ipxact:name>
+				<ipxact:description>AXI address write channel valid.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_awready_i</ipxact:name>
+				<ipxact:description>AXI address write channel ready.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_wdata_o</ipxact:name>
+				<ipxact:description>AXI write channel data.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>AXI_DATA_W_ID-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_wstrb_o</ipxact:name>
+				<ipxact:description>AXI write channel write strobe.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>AXI_DATA_W_ID/8-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_wvalid_o</ipxact:name>
+				<ipxact:description>AXI write channel valid.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_wready_i</ipxact:name>
+				<ipxact:description>AXI write channel ready.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_bresp_i</ipxact:name>
+				<ipxact:description>AXI write response channel response.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_bvalid_i</ipxact:name>
+				<ipxact:description>AXI write response channel valid.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_bready_o</ipxact:name>
+				<ipxact:description>AXI write response channel ready.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_awid_o</ipxact:name>
+				<ipxact:description>AXI address write channel ID.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>AXI_ID_W_ID-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_awlen_o</ipxact:name>
+				<ipxact:description>AXI address write channel burst length.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>AXI_LEN_W_ID-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_awsize_o</ipxact:name>
+				<ipxact:description>AXI address write channel burst size.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>2</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_awburst_o</ipxact:name>
+				<ipxact:description>AXI address write channel burst type.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_awlock_o</ipxact:name>
+				<ipxact:description>AXI address write channel lock type.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_awcache_o</ipxact:name>
+				<ipxact:description>AXI address write channel memory type.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>3</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_awqos_o</ipxact:name>
+				<ipxact:description>AXI address write channel quality of service.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>3</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_wlast_o</ipxact:name>
+				<ipxact:description>AXI Write channel last word flag.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>axi_bid_i</ipxact:name>
+				<ipxact:description>AXI Write response channel ID.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>AXI_ID_W_ID-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>axi_m</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>inta_o</ipxact:name>
+				<ipxact:description>Interrupt Output A</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>phy_rstn_o</ipxact:name>
+				<ipxact:description>Reset signal for PHY. Duration configurable via PHY_RST_CNT parameter.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>mii_tx_clk_i</ipxact:name>
+				<ipxact:description>Transmit Nibble or Symbol Clock. The PHY provides the MTxClk signal. It operates at a frequency of 25 MHz (100 Mbps) or 2.5 MHz (10 Mbps). The clock is used as a timing reference for the transfer of MTxD[3:0], MtxEn, and MTxErr.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>mii_txd_o</ipxact:name>
+				<ipxact:description>Transmit Data Nibble. Signals are the transmit data nibbles. They are synchronized to the rising edge of MTxClk. When MTxEn is asserted, PHY accepts the MTxD.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>3</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>mii_tx_en_o</ipxact:name>
+				<ipxact:description>Transmit Enable. When asserted, this signal indicates to the PHY that the data MTxD[3:0] is valid and the transmission can start. The transmission starts with the first nibble of the preamble. The signal remains asserted until all nibbles to be transmitted are presented to the PHY. It is deasserted prior to the first MTxClk, following the final nibble of a frame.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>mii_tx_er_o</ipxact:name>
+				<ipxact:description>Transmit Coding Error. When asserted for one MTxClk clock period while MTxEn is also asserted, this signal causes the PHY to transmit one or more symbols that are not part of the valid data or delimiter set somewhere in the frame being transmitted to indicate that there has been a transmit coding error.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>mii_rx_clk_i</ipxact:name>
+				<ipxact:description>Receive Nibble or Symbol Clock. The PHY provides the MRxClk signal. It operates at a frequency of 25 MHz (100 Mbps) or 2.5 MHz (10 Mbps). The clock is used as a timing reference for the reception of MRxD[3:0], MRxDV, and MRxErr.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>mii_rxd_i</ipxact:name>
+				<ipxact:description>Receive Data Nibble. These signals are the receive data nibble. They are synchronized to the rising edge of MRxClk. When MRxDV is asserted, the PHY sends a data nibble to the Rx MAC. For a correctly interpreted frame, seven bytes of a preamble and a completely formed SFD must be passed across the interface.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>3</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>mii_rx_dv_i</ipxact:name>
+				<ipxact:description>Receive Data Valid. The PHY asserts this signal to indicate to the Rx MAC that it is presenting the valid nibbles on the MRxD[3:0] signals. The signal is asserted synchronously to the MRxClk. MRxDV is asserted from the first recovered nibble of the frame to the final recovered nibble. It is then deasserted prior to the first MRxClk that follows the final nibble.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>mii_rx_er_i</ipxact:name>
+				<ipxact:description>Receive Error. The PHY asserts this signal to indicate to the Rx MAC that a media error was detected during the transmission of the current frame. MRxErr is synchronous to the MRxClk and is asserted for one or more MRxClk clock periods and then deasserted.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>mii_crs_i</ipxact:name>
+				<ipxact:description>Carrier Sense. The PHY asynchronously asserts the carrier sense MCrS signal after the medium is detected in a non-idle state. When deasserted, this signal indicates that the media is in an idle state (and the transmission can start).</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>mii_col_i</ipxact:name>
+				<ipxact:description>Collision Detected. The PHY asynchronously asserts the collision signal MColl after the collision has been detected on the media. When deasserted, no collision is detected on the media.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>mii_mdio_io</ipxact:name>
+				<ipxact:description>Management Data Input/Output. Bi-directional serial data channel for PHY/STA communication.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>input-output</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>mii_mdc_o</ipxact:name>
+				<ipxact:description>Management Data Clock. This is a clock for the MDIO serial data channel.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags></kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>csrs_iob_valid_i</ipxact:name>
+				<ipxact:description>Request address is valid.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>csrs_cbus_s</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>csrs_iob_addr_i</ipxact:name>
+				<ipxact:description>Byte address.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>11</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>csrs_cbus_s</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>csrs_iob_wdata_i</ipxact:name>
+				<ipxact:description>Write data.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>DATA_W_ID-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>csrs_cbus_s</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>csrs_iob_wstrb_i</ipxact:name>
+				<ipxact:description>Write strobe.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>in</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>DATA_W_ID/8-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>csrs_cbus_s</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>csrs_iob_rvalid_o</ipxact:name>
+				<ipxact:description>Read data valid.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>csrs_cbus_s</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>csrs_iob_rdata_o</ipxact:name>
+				<ipxact:description>Read data.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>DATA_W_ID-1</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>csrs_cbus_s</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+			<ipxact:port>
+				<ipxact:name>csrs_iob_ready_o</ipxact:name>
+				<ipxact:description>Interface ready.</ipxact:description>
+				<ipxact:wire>
+					<ipxact:direction>out</ipxact:direction>
+					<ipxact:vectors>
+						<ipxact:vector>
+							<ipxact:left>0</ipxact:left>
+							<ipxact:right>0</ipxact:right>
+						</ipxact:vector>
+					</ipxact:vectors>
+				</ipxact:wire>
+				<ipxact:vendorExtensions>
+					<kactus2:portTags>csrs_cbus_s</kactus2:portTags>
+				</ipxact:vendorExtensions>
+			</ipxact:port>
+		</ipxact:ports>
+	</ipxact:model>
+	<ipxact:resetTypes>
+		<ipxact:resetType>
+			<ipxact:name>arst_i</ipxact:name>
+			<ipxact:displayName>arst_i</ipxact:displayName>
+			<ipxact:description>Asynchronous active-high reset</ipxact:description>
+		</ipxact:resetType>
+	</ipxact:resetTypes>
+	<ipxact:description>IObundle's ethernet core. Driver-compatible with the [ethmac](https://opencores.org/projects/ethmac) core, containing a similar Control/Status Register interface.</ipxact:description>
+	<ipxact:parameters>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="PREAMBLE_ID" type="string">
+			<ipxact:name>PREAMBLE</ipxact:name>
+			<ipxact:description>Ethernet packet preamble value</ipxact:description>
+			<ipxact:value>8'h55</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="PREAMBLE_LEN_ID" type="int">
+			<ipxact:name>PREAMBLE_LEN</ipxact:name>
+			<ipxact:description>Ethernet packet preamble length</ipxact:description>
+			<ipxact:value>7</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="SFD_ID" type="string">
+			<ipxact:name>SFD</ipxact:name>
+			<ipxact:description>Start Frame Delimiter</ipxact:description>
+			<ipxact:value>8'hD5</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="MAC_ADDR_LEN_ID" type="int">
+			<ipxact:name>MAC_ADDR_LEN</ipxact:name>
+			<ipxact:description>Ethernet MAC address length</ipxact:description>
+			<ipxact:value>6</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="4" maximum="128" parameterId="DATA_W_ID" type="int">
+			<ipxact:name>DATA_W</ipxact:name>
+			<ipxact:description>Data bus width</ipxact:description>
+			<ipxact:value>32</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="5" maximum="32" minimum="0" parameterId="AXI_ID_W_ID" type="int">
+			<ipxact:name>AXI_ID_W</ipxact:name>
+			<ipxact:description>AXI ID bus width</ipxact:description>
+			<ipxact:value>1</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="3" maximum="32" minimum="1" parameterId="AXI_ADDR_W_ID" type="int">
+			<ipxact:name>AXI_ADDR_W</ipxact:name>
+			<ipxact:description>AXI address bus width</ipxact:description>
+			<ipxact:value>24</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="4" maximum="32" minimum="1" parameterId="AXI_DATA_W_ID" type="int">
+			<ipxact:name>AXI_DATA_W</ipxact:name>
+			<ipxact:description>AXI data bus width</ipxact:description>
+			<ipxact:value>32</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="3" maximum="4" minimum="1" parameterId="AXI_LEN_W_ID" type="int">
+			<ipxact:name>AXI_LEN_W</ipxact:name>
+			<ipxact:description>AXI burst length width</ipxact:description>
+			<ipxact:value>4</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="PHY_RST_CNT_ID" type="string">
+			<ipxact:name>PHY_RST_CNT</ipxact:name>
+			<ipxact:description>PHY reset counter value. Sets the duration of the PHY reset signal. Suggest smaller value during simulation, like 20'h00100.</ipxact:description>
+			<ipxact:value>20'hFFFFF</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" maximum="7" parameterId="BD_NUM_LOG2_ID" type="int">
+			<ipxact:name>BD_NUM_LOG2</ipxact:name>
+			<ipxact:description>Log2 amount of buffer descriptors</ipxact:description>
+			<ipxact:value>7</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" maximum="32" minimum="0" parameterId="BUFFER_W_ID" type="int">
+			<ipxact:name>BUFFER_W</ipxact:name>
+			<ipxact:description>Buffer size</ipxact:description>
+			<ipxact:value>11</ipxact:value>
+		</ipxact:parameter>
+		<ipxact:parameter kactus2:usageCount="1" parameterId="VERSION_ID" type="string">
+			<ipxact:name>VERSION</ipxact:name>
+			<ipxact:description>Product version. This 16-bit macro uses nibbles to represent decimal numbers using their binary values. The two most significant nibbles represent the integral part of the version, and the two least significant nibbles represent the decimal part.</ipxact:description>
+			<ipxact:value>16'h0001</ipxact:value>
+		</ipxact:parameter>
+	</ipxact:parameters>
+	<ipxact:vendorExtensions>
+		<kactus2:author>IObundle, Lda</kactus2:author>
+		<kactus2:version>3,10,15,0</kactus2:version>
+		<kactus2:kts_attributes>
+			<kactus2:kts_productHier>Flat</kactus2:kts_productHier>
+			<kactus2:kts_implementation>HW</kactus2:kts_implementation>
+			<kactus2:kts_firmness>Mutable</kactus2:kts_firmness>
+		</kactus2:kts_attributes>
+		<kactus2:license>MIT License, Copyright (c) 2026</kactus2:license>
+	</ipxact:vendorExtensions>
+</ipxact:component>

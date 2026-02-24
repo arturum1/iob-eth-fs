@@ -1,0 +1,33 @@
+% SPDX-FileCopyrightText: 2026 IObundle, Lda
+%
+% SPDX-License-Identifier: MIT
+%
+% Py2HWSW Version 0.81 has generated this code (https://github.com/IObundle/py2hwsw).
+
+
+The following tables describe the IP core configuration. The core may be configured using macros or parameters:
+
+\begin{description}
+    \item \textbf{'M'} Macro: a Verilog macro or \texttt{define} directive is used to include or exclude code segments, to create core configurations that are valid for all instances of the core.
+    \item \textbf{'P'} Parameter: a Verilog parameter is passed to each instance of the core and defines the configuration of that particular instance.
+\end{description}
+
+{
+\setlength{\LTcapwidth}{\linewidth} % make sure the caption takes up the whole linewidth
+\begin{xltabular}{\textwidth}{|l|c|c|c|c|X|}
+
+  \hline
+  \rowcolor{iob-green}
+  {\bf Configuration} & {\bf Type} & {\bf Min} & {\bf Typical} & {\bf Max} & {\bf Description} \\ \hline \hline
+  \endfirsthead
+  \hline
+  \caption{General operation group}
+  \endlastfoot
+
+  \input general_operation_confs_tab
+
+\end{xltabular}
+\label{general_operation_confs_tab:is}
+}
+
+There may be other macros or generic parameters in the code that are not documented. They are typically derived from other primary macros or parameters or exist for documentation purposes.

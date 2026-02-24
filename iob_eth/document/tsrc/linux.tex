@@ -1,0 +1,239 @@
+% SPDX-FileCopyrightText: 2026 IObundle, Lda
+%
+% SPDX-License-Identifier: MIT
+%
+% Py2HWSW Version 0.81 has generated this code (https://github.com/IObundle/py2hwsw).
+
+
+This section describes the Linux driver for the iob\_eth peripheral.
+It includes details about the main kernel module, the kernel-user space interfaces it provides for interacting with the peripheral's Control and Status Registers (CSRs), and the available tests to verify the driver's functionality.
+
+The driver consists of:
+\begin{itemize}
+    \item A kernel module, implemented in \texttt{iob\_eth\_main.c}, which is the core of the driver.
+    \item Three distinct kernel-user space interfaces: \texttt{/dev}, \texttt{ioctl}, and \texttt{sysfs}.
+    \item A set of user space functions with a common API to access the CSRs through any of the interfaces.
+    \item A test suite to validate the driver and the interfaces.
+\end{itemize}
+
+\subsection{Kernel Module}
+\label{sec:linux_kernel_module}
+
+The main source code for the kernel module is located in the \texttt{iob\_eth\_main.c} file.
+This module is implemented as a platform driver, which is responsible for probing and initializing the peripheral device based on information from the device tree.
+When the device is detected, the driver maps the peripheral's memory-mapped registers and creates the necessary user space interfaces (\texttt{/dev}, \texttt{ioctl}, and \texttt{sysfs}).
+It also implements the file operations (e.g., \texttt{read}, \texttt{write}, \texttt{ioctl}) for the \texttt{/dev} and \texttt{ioctl} interfaces.
+
+\subsection{User Space Interfaces}
+\label{sec:linux_user_space_interfaces}
+
+The driver provides three distinct interfaces for user space applications to interact with the iob\_eth peripheral: \texttt{/dev}, \texttt{ioctl}, and \texttt{sysfs}.
+All three interfaces use a common set of user space functions to access the CSRs, with function prototypes that are similar to those of the bare-metal drivers, providing a consistent API.
+\ifdefined\DOXYGEN
+The baremetal function prototypes are documented in Section~\ref{sec:baremetal}.
+\fi
+
+The following header files must be included in your user space application to use the API:
+\begin{itemize}
+    \item \texttt{iob\_eth\_driver\_files.h}
+    \item \texttt{iob\_eth\_csrs.h}
+\end{itemize}
+
+Before using any of the API functions, you must initialize the library by calling the following function:
+\begin{verbatim}
+void iob_eth_csrs_init_baseaddr(uint32_t addr);
+\end{verbatim}
+For the \texttt{/dev} and \texttt{ioctl} interfaces, this function opens the device file. For the \texttt{sysfs} interface, this function does nothing.
+
+The following sections describe each of these interfaces in detail.
+
+\subsubsection{/dev Interface}
+\label{sec:linux_dev_interface}
+
+The \texttt{/dev} interface allows direct access to the peripheral's registers through the device file \texttt{/dev/iob\_eth}.
+Access to the CSRs is performed by seeking to the appropriate address offset using \texttt{lseek()} and then using \texttt{read()} or \texttt{write()} to access the register.
+
+The following CSRs are available through this interface:
+\begin{itemize}
+    \item \texttt{moder}: Address: \texttt{IOB\_ETH\_CSRS\_MODER\_ADDR}, Access: RW
+    \item \texttt{int\_source}: Address: \texttt{IOB\_ETH\_CSRS\_INT\_SOURCE\_ADDR}, Access: RW
+    \item \texttt{int\_mask}: Address: \texttt{IOB\_ETH\_CSRS\_INT\_MASK\_ADDR}, Access: RW
+    \item \texttt{ipgt}: Address: \texttt{IOB\_ETH\_CSRS\_IPGT\_ADDR}, Access: RW
+    \item \texttt{ipgr1}: Address: \texttt{IOB\_ETH\_CSRS\_IPGR1\_ADDR}, Access: RW
+    \item \texttt{ipgr2}: Address: \texttt{IOB\_ETH\_CSRS\_IPGR2\_ADDR}, Access: RW
+    \item \texttt{packetlen}: Address: \texttt{IOB\_ETH\_CSRS\_PACKETLEN\_ADDR}, Access: RW
+    \item \texttt{collconf}: Address: \texttt{IOB\_ETH\_CSRS\_COLLCONF\_ADDR}, Access: RW
+    \item \texttt{tx\_bd\_num}: Address: \texttt{IOB\_ETH\_CSRS\_TX\_BD\_NUM\_ADDR}, Access: RW
+    \item \texttt{ctrlmoder}: Address: \texttt{IOB\_ETH\_CSRS\_CTRLMODER\_ADDR}, Access: RW
+    \item \texttt{miimoder}: Address: \texttt{IOB\_ETH\_CSRS\_MIIMODER\_ADDR}, Access: RW
+    \item \texttt{miicommand}: Address: \texttt{IOB\_ETH\_CSRS\_MIICOMMAND\_ADDR}, Access: RW
+    \item \texttt{miiaddress}: Address: \texttt{IOB\_ETH\_CSRS\_MIIADDRESS\_ADDR}, Access: RW
+    \item \texttt{miitx\_data}: Address: \texttt{IOB\_ETH\_CSRS\_MIITX\_DATA\_ADDR}, Access: RW
+    \item \texttt{miirx\_data}: Address: \texttt{IOB\_ETH\_CSRS\_MIIRX\_DATA\_ADDR}, Access: RW
+    \item \texttt{miistatus}: Address: \texttt{IOB\_ETH\_CSRS\_MIISTATUS\_ADDR}, Access: RW
+    \item \texttt{mac\_addr0}: Address: \texttt{IOB\_ETH\_CSRS\_MAC\_ADDR0\_ADDR}, Access: RW
+    \item \texttt{mac\_addr1}: Address: \texttt{IOB\_ETH\_CSRS\_MAC\_ADDR1\_ADDR}, Access: RW
+    \item \texttt{eth\_hash0\_adr}: Address: \texttt{IOB\_ETH\_CSRS\_ETH\_HASH0\_ADR\_ADDR}, Access: RW
+    \item \texttt{eth\_hash1\_adr}: Address: \texttt{IOB\_ETH\_CSRS\_ETH\_HASH1\_ADR\_ADDR}, Access: RW
+    \item \texttt{eth\_txctrl}: Address: \texttt{IOB\_ETH\_CSRS\_ETH\_TXCTRL\_ADDR}, Access: RW
+    \item \texttt{tx\_bd\_cnt}: Address: \texttt{IOB\_ETH\_CSRS\_TX\_BD\_CNT\_ADDR}, Access: R
+    \item \texttt{rx\_bd\_cnt}: Address: \texttt{IOB\_ETH\_CSRS\_RX\_BD\_CNT\_ADDR}, Access: R
+    \item \texttt{tx\_word\_cnt}: Address: \texttt{IOB\_ETH\_CSRS\_TX\_WORD\_CNT\_ADDR}, Access: R
+    \item \texttt{rx\_word\_cnt}: Address: \texttt{IOB\_ETH\_CSRS\_RX\_WORD\_CNT\_ADDR}, Access: R
+    \item \texttt{rx\_nbytes}: Address: \texttt{IOB\_ETH\_CSRS\_RX\_NBYTES\_ADDR}, Access: R
+    \item \texttt{frame\_word}: Address: \texttt{IOB\_ETH\_CSRS\_FRAME\_WORD\_ADDR}, Access: RW
+    \item \texttt{phy\_rst\_val}: Address: \texttt{IOB\_ETH\_CSRS\_PHY\_RST\_VAL\_ADDR}, Access: R
+    \item \texttt{bd}: Address: \texttt{IOB\_ETH\_CSRS\_BD\_ADDR}, Access: RW
+    \item \texttt{version}: Address: \texttt{IOB\_ETH\_CSRS\_VERSION\_ADDR}, Access: R
+\end{itemize}
+\subsubsection{ioctl Interface}
+\label{sec:linux_ioctl_interface}
+
+The \texttt{ioctl} interface uses I/O control commands to interact with the peripheral.
+The function prototypes provided for this interface are identical to the \texttt{/dev} interface functions.
+
+The following IOCTL commands are defined for each CSR:
+\begin{itemize}    \item \texttt{WR\_{MODER}}: Write to the moder CSR.
+    \item \texttt{RD\_{MODER}}: Read from the moder CSR.
+    \item \texttt{WR\_{INT\_SOURCE}}: Write to the int\_source CSR.
+    \item \texttt{RD\_{INT\_SOURCE}}: Read from the int\_source CSR.
+    \item \texttt{WR\_{INT\_MASK}}: Write to the int\_mask CSR.
+    \item \texttt{RD\_{INT\_MASK}}: Read from the int\_mask CSR.
+    \item \texttt{WR\_{IPGT}}: Write to the ipgt CSR.
+    \item \texttt{RD\_{IPGT}}: Read from the ipgt CSR.
+    \item \texttt{WR\_{IPGR1}}: Write to the ipgr1 CSR.
+    \item \texttt{RD\_{IPGR1}}: Read from the ipgr1 CSR.
+    \item \texttt{WR\_{IPGR2}}: Write to the ipgr2 CSR.
+    \item \texttt{RD\_{IPGR2}}: Read from the ipgr2 CSR.
+    \item \texttt{WR\_{PACKETLEN}}: Write to the packetlen CSR.
+    \item \texttt{RD\_{PACKETLEN}}: Read from the packetlen CSR.
+    \item \texttt{WR\_{COLLCONF}}: Write to the collconf CSR.
+    \item \texttt{RD\_{COLLCONF}}: Read from the collconf CSR.
+    \item \texttt{WR\_{TX\_BD\_NUM}}: Write to the tx\_bd\_num CSR.
+    \item \texttt{RD\_{TX\_BD\_NUM}}: Read from the tx\_bd\_num CSR.
+    \item \texttt{WR\_{CTRLMODER}}: Write to the ctrlmoder CSR.
+    \item \texttt{RD\_{CTRLMODER}}: Read from the ctrlmoder CSR.
+    \item \texttt{WR\_{MIIMODER}}: Write to the miimoder CSR.
+    \item \texttt{RD\_{MIIMODER}}: Read from the miimoder CSR.
+    \item \texttt{WR\_{MIICOMMAND}}: Write to the miicommand CSR.
+    \item \texttt{RD\_{MIICOMMAND}}: Read from the miicommand CSR.
+    \item \texttt{WR\_{MIIADDRESS}}: Write to the miiaddress CSR.
+    \item \texttt{RD\_{MIIADDRESS}}: Read from the miiaddress CSR.
+    \item \texttt{WR\_{MIITX\_DATA}}: Write to the miitx\_data CSR.
+    \item \texttt{RD\_{MIITX\_DATA}}: Read from the miitx\_data CSR.
+    \item \texttt{WR\_{MIIRX\_DATA}}: Write to the miirx\_data CSR.
+    \item \texttt{RD\_{MIIRX\_DATA}}: Read from the miirx\_data CSR.
+    \item \texttt{WR\_{MIISTATUS}}: Write to the miistatus CSR.
+    \item \texttt{RD\_{MIISTATUS}}: Read from the miistatus CSR.
+    \item \texttt{WR\_{MAC\_ADDR0}}: Write to the mac\_addr0 CSR.
+    \item \texttt{RD\_{MAC\_ADDR0}}: Read from the mac\_addr0 CSR.
+    \item \texttt{WR\_{MAC\_ADDR1}}: Write to the mac\_addr1 CSR.
+    \item \texttt{RD\_{MAC\_ADDR1}}: Read from the mac\_addr1 CSR.
+    \item \texttt{WR\_{ETH\_HASH0\_ADR}}: Write to the eth\_hash0\_adr CSR.
+    \item \texttt{RD\_{ETH\_HASH0\_ADR}}: Read from the eth\_hash0\_adr CSR.
+    \item \texttt{WR\_{ETH\_HASH1\_ADR}}: Write to the eth\_hash1\_adr CSR.
+    \item \texttt{RD\_{ETH\_HASH1\_ADR}}: Read from the eth\_hash1\_adr CSR.
+    \item \texttt{WR\_{ETH\_TXCTRL}}: Write to the eth\_txctrl CSR.
+    \item \texttt{RD\_{ETH\_TXCTRL}}: Read from the eth\_txctrl CSR.
+    \item \texttt{RD\_{TX\_BD\_CNT}}: Read from the tx\_bd\_cnt CSR.
+    \item \texttt{RD\_{RX\_BD\_CNT}}: Read from the rx\_bd\_cnt CSR.
+    \item \texttt{RD\_{TX\_WORD\_CNT}}: Read from the tx\_word\_cnt CSR.
+    \item \texttt{RD\_{RX\_WORD\_CNT}}: Read from the rx\_word\_cnt CSR.
+    \item \texttt{RD\_{RX\_NBYTES}}: Read from the rx\_nbytes CSR.
+    \item \texttt{WR\_{FRAME\_WORD}}: Write to the frame\_word CSR.
+    \item \texttt{RD\_{FRAME\_WORD}}: Read from the frame\_word CSR.
+    \item \texttt{RD\_{PHY\_RST\_VAL}}: Read from the phy\_rst\_val CSR.
+    \item \texttt{WR\_{BD}}: Write to the bd CSR.
+    \item \texttt{RD\_{BD}}: Read from the bd CSR.
+    \item \texttt{RD\_{VERSION}}: Read from the version CSR.
+\end{itemize}
+
+\subsubsection{sysfs Interface}
+\label{sec:linux_sysfs_interface}
+
+The \texttt{sysfs} interface exposes the peripheral's registers as files in the system's file system.
+The functions prototypes provided for this interface are identical to the \texttt{/dev} interface functions.
+
+The CSRs are exposed as files in the following directory:
+\begin{verbatim}
+/sys/class/iob_eth/iob_eth/
+\end{verbatim}
+
+The following files are available for each CSR:
+\begin{itemize}    \item \texttt{moder}: Access the moder CSR. (Mode: RW)
+    \item \texttt{int\_source}: Access the int\_source CSR. (Mode: RW)
+    \item \texttt{int\_mask}: Access the int\_mask CSR. (Mode: RW)
+    \item \texttt{ipgt}: Access the ipgt CSR. (Mode: RW)
+    \item \texttt{ipgr1}: Access the ipgr1 CSR. (Mode: RW)
+    \item \texttt{ipgr2}: Access the ipgr2 CSR. (Mode: RW)
+    \item \texttt{packetlen}: Access the packetlen CSR. (Mode: RW)
+    \item \texttt{collconf}: Access the collconf CSR. (Mode: RW)
+    \item \texttt{tx\_bd\_num}: Access the tx\_bd\_num CSR. (Mode: RW)
+    \item \texttt{ctrlmoder}: Access the ctrlmoder CSR. (Mode: RW)
+    \item \texttt{miimoder}: Access the miimoder CSR. (Mode: RW)
+    \item \texttt{miicommand}: Access the miicommand CSR. (Mode: RW)
+    \item \texttt{miiaddress}: Access the miiaddress CSR. (Mode: RW)
+    \item \texttt{miitx\_data}: Access the miitx\_data CSR. (Mode: RW)
+    \item \texttt{miirx\_data}: Access the miirx\_data CSR. (Mode: RW)
+    \item \texttt{miistatus}: Access the miistatus CSR. (Mode: RW)
+    \item \texttt{mac\_addr0}: Access the mac\_addr0 CSR. (Mode: RW)
+    \item \texttt{mac\_addr1}: Access the mac\_addr1 CSR. (Mode: RW)
+    \item \texttt{eth\_hash0\_adr}: Access the eth\_hash0\_adr CSR. (Mode: RW)
+    \item \texttt{eth\_hash1\_adr}: Access the eth\_hash1\_adr CSR. (Mode: RW)
+    \item \texttt{eth\_txctrl}: Access the eth\_txctrl CSR. (Mode: RW)
+    \item \texttt{tx\_bd\_cnt}: Access the tx\_bd\_cnt CSR. (Mode: R)
+    \item \texttt{rx\_bd\_cnt}: Access the rx\_bd\_cnt CSR. (Mode: R)
+    \item \texttt{tx\_word\_cnt}: Access the tx\_word\_cnt CSR. (Mode: R)
+    \item \texttt{rx\_word\_cnt}: Access the rx\_word\_cnt CSR. (Mode: R)
+    \item \texttt{rx\_nbytes}: Access the rx\_nbytes CSR. (Mode: R)
+    \item \texttt{frame\_word}: Access the frame\_word CSR. (Mode: RW)
+    \item \texttt{phy\_rst\_val}: Access the phy\_rst\_val CSR. (Mode: R)
+    \item \texttt{bd}: Access the bd CSR. (Mode: RW)
+    \item \texttt{version}: Access the version CSR. (Mode: R)
+
+\end{itemize}
+
+\subsection{User Space Application}
+\label{sec:linux_user_space_application}
+
+User space applications can be developed to interact with the peripheral's driver interfaces. An example application, \texttt{user/iob\_eth\_user.c}, is provided for some cores.
+Otherwise, the auto-generated test application, \texttt{user/iob\_eth\_tests.c}, can serve as a reference for creating custom user space applications.
+
+\paragraph{Building an application}
+User space applications can be built using the \texttt{Makefile} located in the \texttt{user} directory. You need to specify the name of your application's source file (without the \texttt{.c} extension) and the desired interface.
+\begin{verbatim}
+make BIN=<your_app_name> IF=<interface>
+\end{verbatim}
+The \texttt{IF} variable can be set to \texttt{sysfs}, \texttt{dev}, or \texttt{ioctl} to build the application for the corresponding interface. For example, to build an application from a source file named \texttt{my\_app.c}, you would run \texttt{make BIN=my\_app IF=sysfs}.
+
+\paragraph{Running the application}
+To run the application, execute the compiled binary in the target Linux system, replacing \texttt{<your\_app\_name>} and \texttt{<interface>} with the ones you selected during the build:
+\begin{verbatim}
+./<your_app_name>_<interface>
+\end{verbatim}
+
+\subsection{Tests}
+\label{sec:linux_tests}
+
+A test suite is provided to verify the functionality and performance of the driver interfaces.
+The test source code is located in \texttt{user/iob\_eth\_tests.c}.
+
+\paragraph{Building the tests}
+The tests can be built using the \texttt{Makefile} in the \texttt{user} directory by setting the \texttt{BIN} variable to \texttt{iob\_eth\_tests}:
+\begin{verbatim}
+make BIN=iob_eth_tests IF=<interface>
+\end{verbatim}
+The \texttt{IF} variable can be set to \texttt{sysfs}, \texttt{dev}, or \texttt{ioctl} to test the corresponding interface.
+
+\paragraph{Running the tests}
+To run the tests, execute the compiled binary in the target Linux system, replacing \texttt{<interface>} with the one you selected during build:
+\begin{verbatim}
+./iob_eth_tests_<interface>
+\end{verbatim}
+
+The test suite includes:
+\begin{itemize}
+    \item \textbf{Functionality tests:} Verify that writing to and reading from Control and Status Registers (CSRs) works correctly.
+    \item \textbf{Error Handling tests:} Simulate faults and verify that appropriate error messages are generated.
+    \item \textbf{Performance tests:} Measure the time taken for a large number of read and write operations to evaluate the interface performance.
+\end{itemize}

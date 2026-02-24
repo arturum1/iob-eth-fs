@@ -1,0 +1,15 @@
+% SPDX-FileCopyrightText: 2026 IObundle, Lda
+%
+% SPDX-License-Identifier: MIT
+%
+% Py2HWSW Version 0.81 has generated this code (https://github.com/IObundle/py2hwsw).
+
+TX\_BD\_CNT & R & 0x54 & BD\_NUM\_LOG2 & 8 & 0 & Buffer descriptor number of current TX frame \\* \nobreakhline
+\rowcolor{iob-blue}
+RX\_BD\_CNT & R & 0x58 & BD\_NUM\_LOG2 & 8 & 0 & Buffer descriptor number of current RX frame \\* \nobreakhline
+TX\_WORD\_CNT & R & 0x5C & BUFFER\_W & 32 & 0 & Word number of current TX frame \\* \nobreakhline
+\rowcolor{iob-blue}
+RX\_WORD\_CNT & R & 0x60 & BUFFER\_W & 32 & 0 & Word number of current RX frame \\ \hline
+RX\_NBYTES & R & 0x64 & BUFFER\_W & 32 & 0 & Size of received frame in bytes. Will be zero if no frame has been received. Will reset to zero when cpu completes reading the frame. \\ \hline
+\rowcolor{iob-blue}
+FRAME\_WORD & RW & 0x68 & 8 & 8 & 0 & Frame word to transfer to/from buffer \\

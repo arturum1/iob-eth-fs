@@ -1,0 +1,8 @@
+// general_operation: General operation group
+// Core Configuration Parameters Default Values
+`define IOB_AXISTREAM_OUT_DATA_W 32
+`define IOB_AXISTREAM_OUT_ADDR_W 5
+`define IOB_AXISTREAM_OUT_TDATA_W 8
+`define IOB_AXISTREAM_OUT_FIFO_ADDR_W 4
+// Core Configuration Macros.
+`define IOB_AXISTREAM_OUT_VERSION 16'h0081

@@ -1,0 +1,37 @@
+% SPDX-FileCopyrightText: 2026 IObundle, Lda
+%
+% SPDX-License-Identifier: MIT
+%
+% Py2HWSW Version 0.81 has generated this code (https://github.com/IObundle/py2hwsw).
+
+MODER & RW & 0x0 & 32 & 32 & 40960 & Mode Register \\* \nobreakhline
+\rowcolor{iob-blue}
+INT\_SOURCE & RW & 0x4 & 32 & 32 & 0 & Interrupt Source Register \\* \nobreakhline
+INT\_MASK & RW & 0x8 & 32 & 32 & 0 & Interrupt Mask Register \\* \nobreakhline
+\rowcolor{iob-blue}
+IPGT & RW & 0xC & 32 & 32 & 18 & Back to Back Inter Packet Gap Register \\ \hline
+IPGR1 & RW & 0x10 & 32 & 32 & 12 & Non Back to Back Inter Packet Gap Register 1 \\ \hline
+\rowcolor{iob-blue}
+IPGR2 & RW & 0x14 & 32 & 32 & 18 & Non Back to Back Inter Packet Gap Register 2 \\ \hline
+PACKETLEN & RW & 0x18 & 32 & 32 & 4195840 & Packet Length (minimum and maximum) Register \\ \hline
+\rowcolor{iob-blue}
+COLLCONF & RW & 0x1C & 32 & 32 & 61443 & Collision and Retry Configuration \\ \hline
+TX\_BD\_NUM & RW & 0x20 & 32 & 32 & 64 & Transmit Buffer Descriptor Number \\ \hline
+\rowcolor{iob-blue}
+CTRLMODER & RW & 0x24 & 32 & 32 & 0 & Control Module Mode Register \\ \hline
+MIIMODER & RW & 0x28 & 32 & 32 & 100 & MII Mode Register \\ \hline
+\rowcolor{iob-blue}
+MIICOMMAND & RW & 0x2C & 32 & 32 & 0 & MII Command Register \\ \hline
+MIIADDRESS & RW & 0x30 & 32 & 32 & 0 & MII Address Register. Contains the PHY address and the register within the PHY address \\ \hline
+\rowcolor{iob-blue}
+MIITX\_DATA & RW & 0x34 & 32 & 32 & 0 & MII Transmit Data. The data to be transmitted to the PHY \\ \hline
+MIIRX\_DATA & RW & 0x38 & 32 & 32 & 0 & MII Receive Data. The data received from the PHY \\ \hline
+\rowcolor{iob-blue}
+MIISTATUS & RW & 0x3C & 32 & 32 & 0 & MII Status Register \\ \hline
+MAC\_ADDR0 & RW & 0x40 & 32 & 32 & 0 & MAC Individual Address0. The LSB four bytes of the individual address are written to this register \\ \hline
+\rowcolor{iob-blue}
+MAC\_ADDR1 & RW & 0x44 & 32 & 32 & 0 & MAC Individual Address1. The MSB two bytes of the individual address are written to this register \\ \hline
+ETH\_HASH0\_ADR & RW & 0x48 & 32 & 32 & 0 & HASH0 Register \\ \hline
+\rowcolor{iob-blue}
+ETH\_HASH1\_ADR & RW & 0x4C & 32 & 32 & 0 & HASH1 Register \\ \hline
+ETH\_TXCTRL & RW & 0x50 & 32 & 32 & 0 & Transmit Control Register \\
